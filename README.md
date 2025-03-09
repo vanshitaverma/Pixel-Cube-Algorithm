@@ -9,11 +9,18 @@ The proposed shuffling technique works in the following way:
 
 We start by traversing through each row of pixels in the image. At every even-numbered row, the pixels of the entire row are shifted to the next alternate row below it. For example, the 8th row will be shifted to the place of the 10th row, the 10th row to the place of the 12th row and so on. One important thing to note here is that the last even row at the end of the image, when shifted, is wrapped around the pixels of the image and moved to the 0th row or the first even row. 
 
+<img src="images/rowshift.png" width="431"> <img src="images/rsdemo.png" width="400">
+
 After all the rows have been shifted, the columns are also shifted similarly; every even alternate column like the 0th column, 2nd column, 4th column and so on is shifted to the next alternate column to its right. We also take into account the wrapping of the last column to be shifted to the first column. 
 
-When combining both these steps, we get the complete shuffling algorithm. As we can see from the image given below that row wise and column-wise pixels are shuffled alternatively to produce this jumbled square of pixels. We repeat this process a total of 30 times. 
+<img src="images/columnshift.png" width="431"> <img src="images/csdemo.png" width="290">
+
+When combining both these steps, we get the complete shuffling algorithm. As we can see from the image given below row-wise and column-wise pixels are shuffled alternatively to produce this jumbled square of pixels. We repeat this process a total of 30 times. 
+
+<img src="images/demonstration.png" width="900">
 
 Padding:
+
 We first check if the number of pixels in the image in the form (m x n), m represents the no. of rows and n represents the no. of columns, where m and n could be:  
             - (\(m = n\)) : no need to add padding  
             - (\(m > n\)): we add padding to the image, m – n no. of pixel rows  
